@@ -11,9 +11,10 @@ module.exports = {
     username: 'string',
     email: 'string',
     password: 'string',
+    avatarUrl: 'string',
     sessions: 'array',
     currentState: 'json',
-    states: 'array'
+    states: 'array',
 }
 };
 

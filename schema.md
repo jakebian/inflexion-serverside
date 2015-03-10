@@ -9,7 +9,6 @@ Activity:
 
 Session:
 
-- user: float
 - startTime: float
 - endTime: float
 - activities: array
@@ -26,10 +25,8 @@ User:
 - name: string
 - email: string
 - password: string
-- sessions: array
+- completedSessions: array
+- scheduledSessions: array
 - currentState: object
 - states: array
-
-Schedule:
-
-- activities: array
+- avatarUrl: string

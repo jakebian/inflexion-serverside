@@ -8,7 +8,6 @@
 module.exports = {
 
   attributes: {
-    user: 'float',
     startTime: 'float',
     endTime: 'float',
     activities: 'array'
