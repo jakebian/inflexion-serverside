@@ -14,13 +14,21 @@ function generate() {
         email: faker.internet.email(),
         completedSessions: generateSessions(),
         scheduledSessions: scheduledSessions(true),
-        currentState: stateGenerator.generate();
-        states: randomRange.map(stateGenerator.generate),
+        currentState: generateState();
+        states: randomRange.map(generateState),
     }
 }
 
 function generateSessions(future) {
-    return randomRange.map(sessionGenerator.generate(future));
+    return randomRange.map(function () {
+        var session = sessionGenerator.generate(future);
+        Session.create(session);
+    });
+}
+
+function generateState() {
+    var state = sessionGenerator.generate(future);
+    State.create(state);
 }
 
 function randomRange() {
