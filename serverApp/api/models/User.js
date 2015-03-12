@@ -19,6 +19,6 @@ module.exports = {
         states: 'array',
     },
 
-    seedData: _.range
+    seedData: _.range(20).map(userSeeder.generate)
 };
 

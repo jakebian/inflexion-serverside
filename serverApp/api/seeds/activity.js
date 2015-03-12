@@ -8,7 +8,8 @@ var _ = require('underscore');
 var generatorMap = {
     'rep': generateRepActivity,
     'row': generateRowActivity,
-    'weight': randomWeightActivityName
+    'weight': generateWeightActivity,
+    'bike': generateBikeActivity
 }
 
 var weightActivityNames = [
@@ -36,11 +37,11 @@ function generateByType(type) {
 
 function generateRepActivity() {
     return {
-        name: _.sample(countableActivityNames),
+        name: _.sample(repActivityNames),
         quantity: {
             value: _.random(10, 100),
             units: 'reps'
-        } 
+        }
     }
 }
 

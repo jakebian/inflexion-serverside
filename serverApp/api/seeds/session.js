@@ -10,7 +10,7 @@ function generate(future) {
     var startTime, endTime;
 
     if (!future) {
-        startTime = _.range(1424233944682, 1425961944682);
+        startTime = _.random(1424233944682, 1425961944682);
         endTime = startTime + 120000 * quantity;
     }
 

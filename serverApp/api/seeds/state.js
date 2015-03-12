@@ -8,26 +8,28 @@ var faker = require('faker');
 
 function generate() {
     return {
-        weight: _.range(120, 200),
-        records: generateRecords,
+        weight: _.random(120, 200),
+        records: generateRecords(),
         pictureUrl: faker.internet.avatar()
     }
 }
 
-var recordsFields = [
-    'deadlift',
-    'snatch',
-    'front squat',
-    'squat standups'
-    'hip extensions',
-    'crunches',
-    'pushups'
+var activityTypes = [
+    'rep',
+    'row',
+    'weight'
 ];
 
 function generateRecords() {
     var records = {};
-    _.sample(Object.keys(recordsFields), _.random(4, 7)).forEach(function (key) {
-        records[key] = activityGenerator.generateByType(key);
-    });
+    var amount = _.random(4, 7);
+
+    while(Object.keys(records).length < amount) {
+        var activity = activityGenerator.generateByType(_.sample(activityTypes));
+        if (activity) {
+            records[activity.name] = activity.quantity;
+        }
+    }
+
     return records;
 }

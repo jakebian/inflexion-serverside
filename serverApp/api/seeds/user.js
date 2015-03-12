@@ -13,22 +13,20 @@ function generate() {
         avatarUrl: faker.internet.avatar(),
         email: faker.internet.email(),
         completedSessions: generateSessions(),
-        scheduledSessions: scheduledSessions(true),
-        currentState: generateState();
-        states: randomRange.map(generateState),
+        scheduledSessions: generateSessions(true),
+        currentState: generateState(),
+        states: randomRange().map(generateState),
     }
 }
 
 function generateSessions(future) {
-    return randomRange.map(function () {
-        var session = sessionGenerator.generate(future);
-        Session.create(session);
+    return randomRange().map(function () {
+        return sessionGenerator.generate(future);
     });
 }
 
 function generateState() {
-    var state = sessionGenerator.generate(future);
-    State.create(state);
+    return stateGenerator.generate();
 }
 
 function randomRange() {
