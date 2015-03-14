@@ -14,9 +14,20 @@ module.exports = {
         email: 'string',
         password: 'string',
         avatarUrl: 'string',
-        sessions: 'array',
-        currentState: 'json',
-        states: 'array',
+
+        scheduledSessions: {
+            collection: 'session',
+            via: 'scheduledBy'
+        },
+
+        completedSessions: {
+            collection: 'session',
+            via: 'completedBy'
+        },
+
+        states: {
+            collection: 'state',
+        },
     },
 
     seedData: _.range(20).map(userSeeder.generate)

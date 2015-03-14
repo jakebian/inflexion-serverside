@@ -7,9 +7,22 @@
 
 module.exports = {
   attributes: {
+
     startTime: 'float',
+
     endTime: 'float',
-    activities: 'array'
+
+    activities: {
+        collection: 'activity',
+    },
+
+    scheduledBy: {
+        model: 'user',
+    },
+
+    completedBy: {
+        model: 'user',
+    }
   }
 };
 

@@ -8,13 +8,12 @@
  * For more information on bootstrapping your app, check out:
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.bootstrap.html
  */
+var _ = require('underscore');
+var userSeeder = require('../api/seeds/user.js');
+var sessionSeeder = require('../api/seeds/session.js');
+var actvitySeeder = require('../api/seeds/activity.js');
 
 module.exports.bootstrap = function(cb) {
-
-  // It's very important to trigger this callback method when you are finished
-  // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-    async.series([
-        Session.seed,
-        User.seed
-    ],cb);
+    var users = _.range(20).map(userSeeder.generate);
+    User.create(users).exec(cb);
 };

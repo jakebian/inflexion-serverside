@@ -8,10 +8,17 @@
 module.exports = {
 
   attributes: {
+    user: {
+        model: 'user'
+    },
+
     weight: 'float',
+
     pictureUrl: 'string',
-    measurements: 'Object',
-    records: 'Object'
+
+    measurements: 'json',
+
+    records: 'json'
   }
 };
 

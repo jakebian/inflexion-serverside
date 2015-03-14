@@ -8,8 +8,13 @@
 module.exports = {
 
   attributes: {
-    name: 'string',
-    quantity: 'json'
+    excercise: 'json',
+
+    quantity: 'json',
+
+    session: {
+        model: 'session'
+    }
   }
 };
 

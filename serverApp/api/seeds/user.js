@@ -14,7 +14,6 @@ function generate() {
         email: faker.internet.email(),
         completedSessions: generateSessions(),
         scheduledSessions: generateSessions(true),
-        currentState: generateState(),
         states: randomRange().map(generateState),
     }
 }

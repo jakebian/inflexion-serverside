@@ -28,6 +28,7 @@ function generateRecords() {
         var activity = activityGenerator.generateByType(_.sample(activityTypes));
         if (activity) {
             records[activity.name] = activity.quantity;
+            records[activity.name].date = _.random(1424233944682, 1425961944682);
         }
     }
 
